@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2026 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="5.4186mm" height="5.4186mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 541.86 541.86"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+ xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#ED3237;stroke-width:50;stroke-linecap:round;stroke-miterlimit:22.9256}
+    .fil2 {fill:none}
+    .fil1 {fill:#373435}
+    .fil3 {fill:#ED3237}
+    .fil0 {fill:#E5D4C4}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g>
+   <path class="fil0" d="M149.58 50.79l310.45 0c17.08,0 31.04,13.96 31.04,31.04l0 310.45c0,17.08 -13.96,31.04 -31.04,31.04l-310.45 0c-17.08,0 -31.04,-13.96 -31.04,-31.04l0 -310.45c0,-17.08 13.96,-31.04 31.04,-31.04z"/>
+   <path class="fil1" d="M149.58 50.79l310.45 0c17.08,0 31.04,13.96 31.04,31.04l0 310.45c0,17.08 -13.96,31.04 -31.04,31.04l-310.45 0c-17.08,0 -31.04,-13.96 -31.04,-31.04l0 -310.45c0,-17.08 13.96,-31.04 31.04,-31.04zm310.45 20l-310.45 0c-3.05,0 -5.83,1.24 -7.83,3.21 -1.97,2 -3.21,4.78 -3.21,7.83l0 310.45c0,3.05 1.24,5.83 3.21,7.83 2,1.97 4.78,3.21 7.83,3.21l310.45 0c3.05,0 5.83,-1.24 7.83,-3.21 1.97,-2 3.21,-4.78 3.21,-7.83l0 -310.45c0,-3.05 -1.24,-5.83 -3.21,-7.83 -2,-1.97 -4.78,-3.21 -7.83,-3.21z"/>
+  </g>
+  <g>
+   <line class="fil2 str0" x1="488.34" y1="189" x2="189" y2= "488.34" />
+   <polygon class="fil3" points="525.08,152.26 511.19,211.04 497.31,269.82 452.41,224.93 407.52,180.03 466.3,166.15 "/>
+   <polygon class="fil3" points="152.26,525.08 211.04,511.19 269.82,497.31 224.93,452.41 180.03,407.52 166.15,466.3 "/>
+  </g>
+  <g>
+   <line class="fil2 str0" x1="53.52" y1="189" x2="352.86" y2= "488.34" />
+   <polygon class="fil3" points="16.78,152.26 75.56,166.15 134.34,180.03 89.45,224.93 44.55,269.82 30.67,211.04 "/>
+   <polygon class="fil3" points="389.6,525.08 375.71,466.3 361.83,407.52 316.93,452.41 272.04,497.31 330.82,511.19 "/>
+  </g>
+ </g>
+</svg>

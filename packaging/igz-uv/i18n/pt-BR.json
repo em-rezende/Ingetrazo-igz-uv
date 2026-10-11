@@ -1,0 +1,88 @@
+{
+  "_language": "Português (Brasil)",
+
+  "Planar Map": "Mapa Planar",
+  "Spherical Map": "Mapa Esférico",
+  "Cylindrical Map": "Mapa Cilíndrico",
+  "Box Map": "Mapa Caixa",
+  "Quad Face Map": "Mapa Face Quad",
+  "Tube Map": "Mapa Tubo",
+  "Triangulate": "Triangular",
+  "UV Transform": "Transformar UV",
+  "Adjust UV": "Ajuste UV",
+  "Help…": "Ajuda…",
+
+  "Planar projection from the current view.":
+    "Projeção planar pela vista atual.",
+  "Spherical projection around the selection.":
+    "Projeção esférica em torno da seleção.",
+  "Cylindrical projection around the Z axis.":
+    "Projeção cilíndrica em torno do eixo Z.",
+  "Box projection (each face by its dominant plane).":
+    "Projeção em caixa (cada face pelo plano dominante).",
+  "UV (0,0)-(1,1) for quad faces.":
+    "UV (0,0)-(1,1) para faces quadradas.",
+  "Tube projection (U along the perimeter).":
+    "Projeção tubo (U pelo perímetro).",
+  "Triangulate preserving UVs.":
+    "Triangular preservando UVs.",
+  "Interactive UV transform (arrow keys).":
+    "Transformação interativa de UVs (setas).",
+  "Show/hide the fine-tune panel (sliders).":
+    "Mostrar/ocultar o painel de ajuste fino (sliders).",
+  "Open the fine-tune panel (sliders).":
+    "Abrir o painel de ajuste fino (sliders).",
+
+  "Select at least one face.":
+    "Selecione pelo menos uma face.",
+  "Select quad faces (4 vertices).":
+    "Selecione faces quadradas (4 vértices).",
+  "Viewport not found.":
+    "Viewport não encontrada.",
+  "Triangulation finished.":
+    "Triangulação concluída.",
+  "{label}: {ok}/{total} face(s).":
+    "{label}: {ok}/{total} face(s).",
+  "  {n} without texture.":
+    "  {n} sem textura.",
+  "  {n} failed.":
+    "  {n} falharam.",
+  "UV Transform: use the arrow keys (Shift=scale, Ctrl=rotate).":
+    "UV Transform: use as setas (Shift=escala, Ctrl=rotação).",
+  "UV adjustments reverted.":
+    "Ajustes de UV revertidos.",
+  "Adjustments applied.":
+    "Ajustes aplicados.",
+
+  "Fine-tune UVs": "Ajuste fino das UVs",
+  "Move the sliders; click Apply to confirm.":
+    "Mova os sliders; use Aplicar para confirmar.",
+  "{n} face(s) with UV. UV center: ({u:.3f}, {v:.3f})":
+    "{n} face(s) com UV. Centro UV: ({u:.3f}, {v:.3f})",
+  "Reload from current selection":
+    "Recarregar da seleção atual",
+  "Take a new snapshot of the selection and reset the sliders.":
+    "Tira um novo snapshot da seleção e zera os sliders.",
+  "The viewport selection differs from the one loaded in the panel.\nClick to synchronize.":
+    "A seleção no viewport é diferente da que está carregada no painel.\nClique para sincronizar.",
+  "Offset": "Deslocamento",
+  "Rotation and scale": "Rotação e escala",
+  "Rotation:": "Rotação:",
+  "Scale U:": "Escala U:",
+  "Scale V:": "Escala V:",
+  "Reset": "Reset",
+  "Apply": "Aplicar",
+
+  "igz-UV — Help": "igz-UV — Ajuda",
+  "UV mapping for IngeTrazo": "Mapeamento UV para o IngeTrazo",
+  "1. Paint the face(s) with a texture (Paint → Texture).\n   Without a texture, the UV grid is applied automatically.":
+    "1. Pinte a(s) face(s) com uma textura (Paint → Texture).\n   Sem textura, a grade UV é aplicada automaticamente.",
+  "2. Select the face(s).":
+    "2. Selecione a(s) face(s).",
+  "3. Choose a mapping on the toolbar (or the menu):\n   • Planar (View), Spherical, Cylindrical\n   • Box, Quad Face, Tube":
+    "3. Escolha um mapeamento na toolbar (ou no menu):\n   • Planar (View), Esférico, Cilíndrico\n   • Box, Quad Face, Tube",
+  "4. Fine-tuning:\n   • Side panel 'Adjust UV' has sliders for U, V,\n     rotation and scale (U and V separately) — they act in BLOCK,\n     rotating all faces around the selection's common center.\n   • UV Transform (arrow keys): adjusts each face\n     individually. Shift=scale, Ctrl=rotate, digits in the VCB.":
+    "4. Ajuste fino:\n   • Painel lateral 'Ajuste UV' tem sliders para U, V,\n     rotação e escala (U e V separadamente) — agem em BLOCO,\n     girando todas as faces em torno do centro comum da seleção.\n   • UV Transform (setas): ajusta cada face individualmente.\n     Shift=escala, Ctrl=rotação, dígitos no VCB.",
+  "5. 'Triangulate' splits faces into triangles preserving UVs.":
+    "5. 'Triangular' divide faces em triângulos preservando UVs."
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2026 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="5.4186mm" height="5.4186mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 541.86 541.86"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+ xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#FEFEFE;stroke-width:7.62;stroke-miterlimit:22.9256}
+    .str1 {stroke:#ED3237;stroke-width:50;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil5 {fill:none}
+    .fil0 {fill:#FEFEFE}
+    .fil4 {fill:#373435}
+    .fil6 {fill:#ED3237}
+    .fil2 {fill:#D6B68C}
+    .fil1 {fill:#E5D4C4}
+    .fil3 {fill:#373435;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g>
+   <polygon class="fil0 str0" points="54.37,192.94 237.05,101.62 419.73,192.94 237.05,284.29 "/>
+   <polygon class="fil1" points="419.73,192.94 419.73,416.68 237.05,508.02 237.05,284.29 "/>
+   <polygon class="fil2" points="54.37,192.94 237.05,284.29 237.05,508.02 54.37,416.68 "/>
+   <g>
+    <g>
+     <path class="fil3" d="M241.52 293.23c-4.93,2.46 -10.95,0.46 -13.41,-4.47 -2.46,-4.93 -0.46,-10.95 4.47,-13.41l8.94 17.88zm182.68 -91.35l-182.68 91.35 -8.94 -17.88 182.68 -91.35 8.94 17.88zm-8.94 -17.88c4.93,-2.46 10.95,-0.46 13.41,4.47 2.46,4.93 0.46,10.95 -4.47,13.41l-8.94 -17.88zm-365.36 17.88c-4.93,-2.46 -6.93,-8.48 -4.47,-13.41 2.46,-4.93 8.48,-6.93 13.41,-4.47l-8.94 17.88zm182.68 91.35l-182.68 -91.35 8.94 -17.88 182.68 91.35 -8.94 17.88zm8.94 -17.88c4.93,2.46 6.93,8.48 4.47,13.41 -2.46,4.93 -8.48,6.93 -13.41,4.47l8.94 -17.88zm5.53 232.67c0,5.52 -4.48,10 -10,10 -5.52,0 -10,-4.48 -10,-10l20 0zm0 -223.73l0 223.73 -20 0 0 -223.73 20 0zm-20 0c0,-5.52 4.48,-10 10,-10 5.52,0 10,4.48 10,10l-20 0z"/>
+    </g>
+    <g>
+     <path class="fil4" d="M48.24 177.15l181.27 -90.61c4.93,-2.46 10.49,-2.28 15.08,0l182.68 91.32c5.9,2.95 9.31,8.9 9.32,15.08l0.07 0 0 223.74c0,7.19 -4.48,13.33 -10.8,15.79l-181.27 90.63c-4.93,2.46 -10.49,2.28 -15.08,0l-182.68 -91.34c-5.9,-2.95 -9.31,-8.9 -9.32,-15.08l-0.07 0 0 -223.74c0,-7.19 4.48,-13.33 10.8,-15.79zm6.13 15.79l182.68 -91.32 182.68 91.32 0 223.74 -182.68 91.34 -182.68 -91.34 0 -223.74z"/>
+    </g>
+   </g>
+  </g>
+  <polyline class="fil5 str1" points="316.6,80.55 316.6,412.31 460.4,341.53 "/>
+  <polygon class="fil6" points="538.81,301.09 487.42,295.1 436.04,289.09 436.04,352.59 436.04,416.08 487.42,358.58 "/>
+  <polygon class="fil6" points="313.71,5.87 342.35,48.96 370.99,92.03 314.4,120.82 257.81,149.6 285.76,77.74 "/>
+ </g>
+</svg>

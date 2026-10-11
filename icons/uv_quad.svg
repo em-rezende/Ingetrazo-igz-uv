@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2026 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="5.4186mm" height="5.4186mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 541.86 541.86"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003"
+ xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:#ED3237;stroke-width:30;stroke-linecap:round;stroke-miterlimit:22.9256}
+    .str0 {stroke:#FEFEFE;stroke-width:16.93;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+    .fil2 {fill:#FEFEFE}
+    .fil3 {fill:#ED3237}
+    .fil1 {fill:#E5D4C4}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0 str0" d="M249.39 406.53l-39.75 40.26 -28.47 -28.46 -24.07 101.91 101.91 -24.07 -28.52 -28.52 40.41 -39.97 40.16 40.27 -28.21 28.22 101.91 24.07 -24.07 -101.91 -27.89 27.89 -40.05 -39.88m-154.68 -111.45l-64.34 -63.91 -28.04 28.03 -24.07 -101.91 101.91 24.07 -28.27 28.28 43.66 43.03m352.15 -88.49l29.17 -6.9 -24.08 101.92 -28.24 -28.24"/>
+  <g>
+   <path class="fil1" d="M149.58 50.79l310.45 0c17.08,0 31.04,13.96 31.04,31.04l0 310.45c0,17.08 -13.96,31.04 -31.04,31.04l-310.45 0c-17.08,0 -31.04,-13.96 -31.04,-31.04l0 -310.45c0,-17.08 13.96,-31.04 31.04,-31.04z"/>
+   <path class="fil2" d="M149.58 50.79l310.45 0c17.08,0 31.04,13.96 31.04,31.04l0 310.45c0,17.08 -13.96,31.04 -31.04,31.04l-310.45 0c-17.08,0 -31.04,-13.96 -31.04,-31.04l0 -310.45c0,-17.08 13.96,-31.04 31.04,-31.04zm310.45 20l-310.45 0c-3.05,0 -5.83,1.24 -7.83,3.21 -1.97,2 -3.21,4.78 -3.21,7.83l0 310.45c0,3.05 1.24,5.83 3.21,7.83 2,1.97 4.78,3.21 7.83,3.21l310.45 0c3.05,0 5.83,-1.24 7.83,-3.21 1.97,-2 3.21,-4.78 3.21,-7.83l0 -310.45c0,-3.05 -1.24,-5.83 -3.21,-7.83 -2,-1.97 -4.78,-3.21 -7.83,-3.21z"/>
+  </g>
+  <g>
+   <line class="fil0 str1" x1="189" y1="488.34" x2="488.34" y2= "189" />
+   <polygon class="fil3" points="157.1,520.24 169.14,469.29 181.17,418.34 220.09,457.25 259,496.17 208.05,508.2 "/>
+   <polygon class="fil3" points="520.24,157.1 469.29,169.14 418.34,181.17 457.25,220.09 496.17,259 508.2,208.05 "/>
+  </g>
+  <g>
+   <line class="fil0 str1" x1="53.52" y1="189" x2="352.86" y2= "488.34" />
+   <polygon class="fil3" points="21.62,157.1 72.57,169.14 123.52,181.17 84.61,220.09 45.69,259 33.66,208.05 "/>
+   <polygon class="fil3" points="384.76,520.24 372.72,469.29 360.69,418.34 321.77,457.25 282.86,496.17 333.81,508.2 "/>
+  </g>
+ </g>
+</svg>

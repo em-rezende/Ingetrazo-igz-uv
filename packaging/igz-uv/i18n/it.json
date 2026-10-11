@@ -1,0 +1,89 @@
+{
+  "_language": "Italiano",
+
+  "Planar Map": "Mappa Planare",
+  "Spherical Map": "Mappa Sferica",
+  "Cylindrical Map": "Mappa Cilindrica",
+  "Box Map": "Mappa Scatola",
+  "Quad Face Map": "Mappa Faccia Quad",
+  "Tube Map": "Mappa Tubo",
+  "Triangulate": "Triangola",
+  "UV Transform": "Trasforma UV",
+  "Adjust UV": "Regola UV",
+  "Help…": "Aiuto…",
+
+  "Planar projection from the current view.":
+    "Proiezione planare dalla vista corrente.",
+  "Spherical projection around the selection.":
+    "Proiezione sferica attorno alla selezione.",
+  "Cylindrical projection around the Z axis.":
+    "Proiezione cilindrica attorno all'asse Z.",
+  "Box projection (each face by its dominant plane).":
+    "Proiezione a scatola (ogni faccia per il suo piano dominante).",
+  "UV (0,0)-(1,1) for quad faces.":
+    "UV (0,0)-(1,1) per facce quad.",
+  "Tube projection (U along the perimeter).":
+    "Proiezione a tubo (U lungo il perimetro).",
+  "Triangulate preserving UVs.":
+    "Triangola preservando le UV.",
+  "Interactive UV transform (arrow keys).":
+    "Trasformazione interattiva delle UV (frecce).",
+  "Show/hide the fine-tune panel (sliders).":
+    "Mostra/nascondi il pannello di regolazione fine (slider).",
+  "Open the fine-tune panel (sliders).":
+    "Apri il pannello di regolazione fine (slider).",
+
+  "Select at least one face.":
+    "Seleziona almeno una faccia.",
+  "Select quad faces (4 vertices).":
+    "Seleziona facce quad (4 vertici).",
+  "Viewport not found.":
+    "Viewport non trovata.",
+  "Triangulation finished.":
+    "Triangolazione completata.",
+  "{label}: {ok}/{total} face(s).":
+    "{label}: {ok}/{total} faccia/e.",
+  "  {n} without texture.":
+    "  {n} senza texture.",
+  "  {n} failed.":
+    "  {n} non riuscite.",
+  "UV Transform: use the arrow keys (Shift=scale, Ctrl=rotate).":
+    "UV Transform: usa le frecce (Shift=scala, Ctrl=ruota).",
+  "UV adjustments reverted.":
+    "Regolazioni UV annullate.",
+  "Adjustments applied.":
+    "Regolazioni applicate.",
+
+  "Fine-tune UVs":
+    "Regolazione fine delle UV",
+  "Move the sliders; click Apply to confirm.":
+    "Muovi gli slider; premi Applica per confermare.",
+  "{n} face(s) with UV. UV center: ({u:.3f}, {v:.3f})":
+    "{n} faccia/e con UV. Centro UV: ({u:.3f}, {v:.3f})",
+  "Reload from current selection":
+    "Ricarica dalla selezione corrente",
+  "Take a new snapshot of the selection and reset the sliders.":
+    "Cattura un nuovo snapshot della selezione e azzera gli slider.",
+  "The viewport selection differs from the one loaded in the panel.\nClick to synchronize.":
+    "La selezione nella viewport è diversa da quella caricata nel pannello.\nFai clic per sincronizzare.",
+  "Offset": "Spostamento",
+  "Rotation and scale": "Rotazione e scala",
+  "Rotation:": "Rotazione:",
+  "Scale U:": "Scala U:",
+  "Scale V:": "Scala V:",
+  "Reset": "Reimposta",
+  "Apply": "Applica",
+
+  "igz-UV — Help": "igz-UV — Aiuto",
+  "UV mapping for IngeTrazo": "Mappatura UV per IngeTrazo",
+  "1. Paint the face(s) with a texture (Paint → Texture).\n   Without a texture, the UV grid is applied automatically.":
+    "1. Dipingi la/e faccia/e con una texture (Paint → Texture).\n   Senza texture, la griglia UV viene applicata automaticamente.",
+  "2. Select the face(s).":
+    "2. Seleziona la/e faccia/e.",
+  "3. Choose a mapping on the toolbar (or the menu):\n   • Planar (View), Spherical, Cylindrical\n   • Box, Quad Face, Tube":
+    "3. Scegli una mappatura nella barra strumenti (o nel menu):\n   • Planare (Vista), Sferica, Cilindrica\n   • Scatola, Faccia Quad, Tubo",
+  "4. Fine-tuning:\n   • Side panel 'Adjust UV' has sliders for U, V,\n     rotation and scale (U and V separately) — they act in BLOCK,\n     rotating all faces around the selection's common center.\n   • UV Transform (arrow keys): adjusts each face\n     individually. Shift=scale, Ctrl=rotate, digits in the VCB.":
+    "4. Regolazione fine:\n   • Il pannello laterale 'Regola UV' ha slider per U, V,\n     rotazione e scala (U e V separatamente) — agiscono in\n     BLOCCO, ruotando tutte le facce attorno al centro comune\n     della selezione.\n   • UV Transform (frecce): regola ogni faccia singolarmente.\n     Shift=scala, Ctrl=ruota, cifre nel VCB.",
+  "5. 'Triangulate' splits faces into triangles preserving UVs.":
+    "5. 'Triangola' divide le facce in triangoli preservando le UV."
+}
