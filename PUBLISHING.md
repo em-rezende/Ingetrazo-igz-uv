@@ -19,6 +19,7 @@ esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
 | Empacotador | `packaging/build_extension.ps1` (Windows) e `packaging/build_extension.py` (multi-plataforma) | Gera um `.zip` determinístico com **uma** pasta de topo `igz-uv/`. |
 | Ponto de entrada do pacote | `packaging/igz-uv/__init__.py` | Define `setup(app)` e carrega o `igz-UV.py` por caminho de arquivo. |
 | Artefato | `dist/igz-uv.zip` | Gerado pelo script; ele imprime o `sha256`. |
+| Notas da Release | `packaging/release_notes/v1.0.0.md` | Texto publicado na Release `v1.0.0`. |
 | Ficha do catálogo | `ingetrazo-extensions-submission/extensions/igz_uv.toml` | Copiar para `extensions/igz_uv.toml` no repositório do catálogo. |
 | Captura de tela | `ingetrazo-extensions-submission/screenshots/igz_uv.png` | Enviar no pull request do catálogo. |
 
