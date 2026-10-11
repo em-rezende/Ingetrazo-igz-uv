@@ -111,7 +111,7 @@ de tradução.
 ```
 igz-UV/
 ├── __init__.py            entrada do pacote
-├── igz-uv.py              a extensão inteira
+├── igz-UV.py              a extensão inteira
 ├── icons/                 ícones SVG + texture_grid.*
 │   ├── texture_grid.jpg
 │   ├── uv_planar.svg
@@ -232,7 +232,7 @@ francês, `de.json` para alemão), copiando a estrutura de
 Regras:
 
 - **As chaves são as strings-fonte em inglês**, exatamente como
-  aparecem em `igz-uv.py`. Não traduza as chaves.
+  aparecem em `igz-UV.py`. Não traduza as chaves.
 - **Os valores são a tradução.**
 - Chaves começando com `_` são metadados e o carregador as ignora
   (`_language`, `_comment`, ...).

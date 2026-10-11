@@ -25,7 +25,7 @@ esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
 | Notas da Release | `packaging/release_notes/v1.0.0.md` | Texto publicado na Release `v1.0.0`. |
 | Ficha do catálogo | `ingetrazo-extensions-submission/extensions/igz_uv.toml` | Copiar para `extensions/igz_uv.toml` no repositório do catálogo. |
 | Captura de tela | `ingetrazo-extensions-submission/screenshots/igz_uv.png` | Enviar no pull request do catálogo. |
-| Release publicada | <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/tag/v1.0.0> | Asset `igz-uv.zip` (518 793 bytes); sha256 `bdd69a10…` conferido. |
+| Release publicada | <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/tag/v1.0.0> | Asset `igz-uv.zip` (519 092 bytes); sha256 `b69c347f…` conferido. |
 | Pull request | <https://github.com/ingelibre/ingetrazo-extensions/pull/75> | Passou na verificação automática; aguarda aprovação de um mantenedor. |
 
 O `.zip` contém exatamente uma pasta de topo:

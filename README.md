@@ -113,7 +113,7 @@ source string, so the plugin never breaks on a missing translation.
 ```
 igz-UV/
 ├── __init__.py            package entry point
-├── igz-uv.py              the whole extension
+├── igz-UV.py              the whole extension
 ├── icons/                 SVG icons + texture_grid.*
 │   ├── texture_grid.jpg
 │   ├── uv_planar.svg
@@ -233,7 +233,7 @@ French, `de.json` for German), and copy the structure of
 Rules:
 
 - **Keys are the English source strings**, exactly as they appear in
-  `igz-uv.py`. Do not translate the keys.
+  `igz-UV.py`. Do not translate the keys.
 - **Values are the translation.**
 - Keys starting with `_` are metadata and are ignored by the loader
   (`_language`, `_comment`, …).
