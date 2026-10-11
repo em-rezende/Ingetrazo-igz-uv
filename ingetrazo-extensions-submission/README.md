@@ -1,8 +1,8 @@
 # Submission bundle — IngeTrazo extension catalog
 
 > **Submission bundle for the IngeTrazo extension catalog** (v1.0.0). These
-> are the files to be submitted in a catalog pull request at
-> <https://github.com/ingelibre/ingetrazo-extensions>.
+> are the files submitted in the catalog pull request
+> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>.
 
 The files below go into the catalog repository:
 

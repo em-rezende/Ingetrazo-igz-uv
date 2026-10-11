@@ -1,9 +1,12 @@
 # Publicar no catálogo de Extensões do IngeTrazo
 
-> **Status: pronto para publicar (v1.0.0).** O código, o empacotador, a ficha
-> do catálogo e a captura de tela já estão neste repositório. Falta criar a
-> Release `v1.0.0` (com o asset `igz-uv.zip`) e abrir o pull request no
-> catálogo, seguindo os passos abaixo.
+> **Status: publicado / submetido (v1.0.0).** A Release `v1.0.0` está no
+> GitHub com o asset `igz-uv.zip` (sha256 verificado) e a ficha do catálogo foi
+> enviada no pull request
+> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, que passou na
+> verificação automática e aguarda a aprovação de um mantenedor. Este guia
+> descreve os passos que foram seguidos e, na prática, como publicar cada
+> atualização.
 
 Este documento (PT) e a seção em inglês mais abaixo descrevem como publicar
 esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
@@ -22,6 +25,8 @@ esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
 | Notas da Release | `packaging/release_notes/v1.0.0.md` | Texto publicado na Release `v1.0.0`. |
 | Ficha do catálogo | `ingetrazo-extensions-submission/extensions/igz_uv.toml` | Copiar para `extensions/igz_uv.toml` no repositório do catálogo. |
 | Captura de tela | `ingetrazo-extensions-submission/screenshots/igz_uv.png` | Enviar no pull request do catálogo. |
+| Release publicada | <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/tag/v1.0.0> | Asset `igz-uv.zip` (518 793 bytes); sha256 `bdd69a10…` conferido. |
+| Pull request | <https://github.com/ingelibre/ingetrazo-extensions/pull/75> | Passou na verificação automática; aguarda aprovação de um mantenedor. |
 
 O `.zip` contém exatamente uma pasta de topo:
 
@@ -113,10 +118,12 @@ Pré-requisitos atendidos: repositório público, licença livre
 
 # Publishing to the IngeTrazo extension catalog (EN)
 
-> **Status: ready to publish (v1.0.0).** The code, the packager, the catalog
-> entry and a screenshot are already in this repository. What remains is to
-> create the `v1.0.0` Release (asset `igz-uv.zip`) and open the pull request in
-> the catalog, following the steps below.
+> **Status: published / submitted (v1.0.0).** The `v1.0.0` Release is live on
+> GitHub with the `igz-uv.zip` asset (verified sha256) and the catalog entry was
+> submitted in pull request
+> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, which passed the
+> automatic check and awaits a maintainer's approval. This guide covers the
+> steps that were taken and, in practice, how to publish each update.
 
 Everything needed is in place (code, a `.zip` builder, the package entry, the
 catalog entry and a screenshot). These are the steps to publish:
