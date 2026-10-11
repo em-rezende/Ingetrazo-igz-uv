@@ -835,7 +835,9 @@ def cylindrical_map(viewport):
 
 def box_map(viewport):
     """Mapeamento caixa: cada face vai para o plano dominante (XY, XZ
-    ou YZ), escolhido pela maior componente da normal."""
+    ou YZ), escolhido pela maior componente da normal. O sentido da
+    normal decide o espelhamento, para a textura não sair invertida nas
+    faces de fundo, esquerda e trás."""
     faces = _require_faces(viewport)
     if not faces:
         return
@@ -851,16 +853,38 @@ def box_map(viewport):
     if size <= 0.0:
         size = 1.0
     def fn(face, pts):
-        n, _c = _fit_plane(pts)
+        # Normal de fora da face: define o plano dominante E o sentido da
+        # projeção. Sem o sentido, as faces com normal negativa (base,
+        # esquerda e trás) sairiam espelhadas. Preferimos a normal do
+        # IngeTrazo; se ela não vier, caímos no plano médio por
+        # triangulação.
+        n = _face_normal(face)
+        if _length(n) <= 1e-9:
+            n, _c = _fit_plane(pts)
         ax, ay, az = abs(n[0]), abs(n[1]), abs(n[2])
         if ax >= ay and ax >= az:
-            # face "de lado" no eixo X → projeta em YZ
-            return [((p[1] - min_y) / size, (p[2] - min_z) / size) for p in pts]
+            # Face "de lado" no eixo X → projeta em YZ. Em -X o Y corre
+            # ao contrário na tela, então espelhamos o U.
+            if n[0] >= 0.0:
+                return [((p[1] - min_y) / size, (p[2] - min_z) / size)
+                        for p in pts]
+            return [((max_y - p[1]) / size, (p[2] - min_z) / size)
+                    for p in pts]
         if ay >= ax and ay >= az:
-            # face "de frente" no eixo Y → projeta em XZ
-            return [((p[0] - min_x) / size, (p[2] - min_z) / size) for p in pts]
-        # face "horizontal" → projeta em XY
-        return [((p[0] - min_x) / size, (p[1] - min_y) / size) for p in pts]
+            # Face "de frente" no eixo Y → projeta em XZ. Em +Y o X corre
+            # ao contrário na tela, então espelhamos o U.
+            if n[1] >= 0.0:
+                return [((max_x - p[0]) / size, (p[2] - min_z) / size)
+                        for p in pts]
+            return [((p[0] - min_x) / size, (p[2] - min_z) / size)
+                    for p in pts]
+        # Face "horizontal" → projeta em XY. Em -Z o X corre ao contrário
+        # na tela, então espelhamos o U.
+        if n[2] >= 0.0:
+            return [((p[0] - min_x) / size, (p[1] - min_y) / size)
+                    for p in pts]
+        return [((max_x - p[0]) / size, (p[1] - min_y) / size)
+                for p in pts]
     _apply_uv_map(viewport, faces, fn, "Box Map")
 
 
