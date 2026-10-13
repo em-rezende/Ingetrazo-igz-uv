@@ -1,8 +1,7 @@
 # igz-UV — UV Mapping Tools for IngeTrazo
 
 A UV mapping extension for [IngeTrazo](https://github.com/ingelibre/ingetrazo),
-ported from the classic **SketchUV** plugin for SketchUp by
-**Dale Martens (Whaat)**.
+Inspired by classic UV mapping tools, adapted for IngeTrazo.
 
 It brings six projection algorithms, an interactive keyboard-driven
 adjuster, a side panel with fine-tuning sliders (U, V, rotation, and
@@ -27,7 +26,7 @@ languages without touching Python.
 
 | Command            | What it does                                                    |
 | ------------------ | --------------------------------------------------------------- |
-| **Planar Map**     | Projects along the current view direction (SketchUp-style).     |
+| **Planar Map**     | Projects along the current view direction (camera-aligned).     |
 | **Spherical Map**  | Wraps UVs around a sphere centered on the selection.            |
 | **Cylindrical Map**| Wraps UVs around a cylinder aligned to the world Z axis.        |
 | **Box Map**        | Assigns each face to its dominant plane (top / side / front).   |
@@ -264,9 +263,9 @@ for k, m in list(sys.modules.items()):
 
 ## Credits
 
-- **Original SketchUV (Ruby, SketchUp)** — Dale Martens (Whaat).
+- **Inspired by classic UV mapping tools**, adapted for IngeTrazo.
 - **IngeTrazo** — Marco Sumari Tellez and contributors.
-- **Port to IngeTrazo** — Ezequiel M. Rezende.
+- **Adapted for IngeTrazo** — Ezequiel M. Rezende.
 
 ## License
 

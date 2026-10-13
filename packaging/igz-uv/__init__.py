@@ -5,7 +5,7 @@
 # Version: 1.0.0
 # License: GPL-3.0-or-later (same as IngeTrazo)
 #
-# Port of SketchUV (by Dale Martens / Whaat) to IngeTrazo.
+# Inspired by classic UV mapping tools, adapted for IngeTrazo.
 #
 # Package layout:
 #   • __init__.py  — this file: loads igz-UV.py by path and forwards

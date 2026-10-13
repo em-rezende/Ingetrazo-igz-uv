@@ -1,8 +1,7 @@
 # igz-UV — Ferramentas de Mapeamento UV para o IngeTrazo
 
 Extensão de mapeamento UV para o
-[IngeTrazo](https://github.com/ingelibre/ingetrazo), portada do clássico
-plugin **SketchUV** para SketchUp, de **Dale Martens (Whaat)**.
+[IngeTrazo](https://github.com/ingelibre/ingetrazo), inspirada em ferramentas clássicas de mapeamento UV, adaptada para o IngeTrazo.
 
 Traz seis algoritmos de projeção, um ajustador interativo por teclado,
 um painel lateral com sliders de ajuste fino (U, V, rotação e **escala
@@ -27,7 +26,7 @@ em Python.
 
 | Comando            | O que faz                                                       |
 | ------------------ | --------------------------------------------------------------- |
-| **Planar Map**     | Projeta pela direção da vista atual (estilo SketchUp).          |
+| **Planar Map**     | Projeta pela direção da vista atual (alinhado à vista).          |
 | **Spherical Map**  | Envolve as UVs numa esfera centrada na seleção.                 |
 | **Cylindrical Map**| Envolve as UVs num cilindro alinhado ao eixo Z do mundo.        |
 | **Box Map**        | Atribui cada face ao plano dominante (topo / lateral / frente). |
@@ -262,9 +261,9 @@ for k, m in list(sys.modules.items()):
 
 ## Créditos
 
-- **SketchUV original (Ruby, SketchUp)** — Dale Martens (Whaat).
+- **Inspirada em ferramentas clássicas de mapeamento UV** — adaptada para o IngeTrazo.
 - **IngeTrazo** — Marco Sumari Tellez e colaboradores.
-- **Porte para IngeTrazo** — Ezequiel M. Rezende.
+- **Adaptada para o IngeTrazo** — Ezequiel M. Rezende.
 
 ## Licença
 

@@ -29,3 +29,6 @@ Output/*.exe
 # Artefato da extensao para o catalogo do IngeTrazo (enviado via GitHub Releases)
 dist/
 
+# Rascunhos locais de resposta/documentacao (nao versionados e nao publicados)
+resposta.txt
+

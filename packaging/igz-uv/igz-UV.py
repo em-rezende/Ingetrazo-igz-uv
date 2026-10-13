@@ -5,7 +5,7 @@
 # Version: 1.0.0
 # License: GPL-3.0-or-later (same as IngeTrazo)
 #
-# Port of SketchUV (by Dale Martens / Whaat) to IngeTrazo.
+# Inspired by classic UV mapping tools, adapted for IngeTrazo.
 #
 # Features:
 #   • Mappings: planar, spherical, cylindrical, box, quad-face, tube
@@ -474,8 +474,8 @@ def _face_valida(face):
 # -------------------------------------------------------------------------
 # Faces sem textura recebem automaticamente o texture_grid.* da pasta
 # icons/. Isso permite ver o mapeamento imediatamente sem precisar
-# pintar a face antes. Herdado do SketchUV original (material
-# "SketchUV Texture").
+# pintar a face antes. O material atribuído chama-se "igz-UV
+# Texture" e aparece no registro de materiais do IngeTrazo.
 
 def _uv_grid_path() -> str | None:
     """Localiza o arquivo texture_grid.* na pasta de ícones do plugin."""
@@ -522,9 +522,9 @@ def _ensure_uv_texture(face) -> bool:
     })
     face.attrs["texture"] = tex
     # Registra o nome do material para aparecer no registro de
-    # materiais do IngeTrazo (mesmo nome do SketchUV original).
+    # materiais do IngeTrazo.
     if "mat" not in face.attrs:
-        face.attrs["mat"] = "SketchUV Texture"
+        face.attrs["mat"] = "igz-UV Texture"
     return True
 
 
