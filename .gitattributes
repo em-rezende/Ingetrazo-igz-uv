@@ -1,0 +1,11 @@
+# Normaliza o texto para LF no repositorio e em qualquer checkout, para que o
+# .zip deterministico (packaging/build_extension.ps1|.py) gere os mesmos bytes
+# no Windows, Linux e macOS e o sha256 publicado possa ser reproduzido.
+* text=auto eol=lf
+
+# Binarios: nunca converter
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.zip binary
+*.cdr binary

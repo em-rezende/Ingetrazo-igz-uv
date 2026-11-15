@@ -1,12 +1,13 @@
 # Publicar no catálogo de Extensões do IngeTrazo
 
-> **Status: publicado / submetido (v1.0.0).** A Release `v1.0.0` está no
-> GitHub com o asset `igz-uv.zip` (sha256 verificado) e a ficha do catálogo foi
-> enviada no pull request
+> **Status: v1.0.0 publicado; v1.1.0 pronta para publicar.** A Release
+> `v1.1.0` traz o asset `igz-uv.zip` (sha256 verificado) e a ficha do catálogo
+> já aponta para ela. A v1.0.0 foi submetida no pull request
 > <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, que passou na
-> verificação automática e aguarda a aprovação de um mantenedor. Este guia
-> descreve os passos que foram seguidos e, na prática, como publicar cada
-> atualização.
+> verificação automática. Para atualizar o catálogo, reenvie os mesmos dois
+> arquivos (`extensions/igz_uv.toml` e `screenshots/igz_uv.png`) com os
+> valores novos. Este guia descreve os passos que foram seguidos e, na
+> prática, como publicar cada atualização.
 
 Este documento (PT) e a seção em inglês mais abaixo descrevem como publicar
 esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
@@ -18,24 +19,24 @@ esta extensão no catálogo <https://github.com/ingelibre/ingetrazo-extensions>
 
 | Item | Onde | Observação |
 |---|---|---|
-| Código | `packaging/igz-uv/igz-UV.py` | A extensão inteira; define `setup(app)`. |
+| Código | `igz-uv/` | Pacote modular: `__init__.py` + `core/*.py` (mappings, texture, transforms, triangulate, keyboard_tool, panel, toolbar, math_utils). |
 | Empacotador | `packaging/build_extension.ps1` (Windows) e `packaging/build_extension.py` (multi-plataforma) | Gera um `.zip` determinístico com **uma** pasta de topo `igz-uv/`. |
-| Ponto de entrada do pacote | `packaging/igz-uv/__init__.py` | Define `setup(app)` e carrega o `igz-UV.py` por caminho de arquivo. |
-| Artefato | `dist/igz-uv.zip` | Gerado pelo script; ele imprime o `sha256`. |
-| Notas da Release | `packaging/release_notes/v1.0.0.md` | Texto publicado na Release `v1.0.0`. |
+| Ponto de entrada do pacote | `igz-uv/__init__.py` | Define `setup(app)` e `__version__` (fonte única da versão). |
+| Artefato | `dist/igz-uv.zip` + `dist/igz-uv.zip.sha256` | Gerado pelo script; ele imprime o `sha256`. |
+| Notas da Release | `packaging/release_notes/v1.1.0.md` | Texto publicado na Release `v1.1.0`. |
 | Ficha do catálogo | `ingetrazo-extensions-submission/extensions/igz_uv.toml` | Copiar para `extensions/igz_uv.toml` no repositório do catálogo. |
 | Captura de tela | `ingetrazo-extensions-submission/screenshots/igz_uv.png` | Enviar no pull request do catálogo. |
-| Release publicada | <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/tag/v1.0.0> | Asset `igz-uv.zip` (519 012 bytes); sha256 `bd7c2a98…` conferido. |
-| Pull request | <https://github.com/ingelibre/ingetrazo-extensions/pull/75> | Passou na verificação automática; aguarda aprovação de um mantenedor. |
+| Release publicada | <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/tag/v1.1.0> | Asset `igz-uv.zip` (sha256 conferido — ver `dist/igz-uv.zip.sha256`). |
+| Pull request | <https://github.com/ingelibre/ingetrazo-extensions/pull/75> | Passou na verificação automática (ficha v1.0.0). |
 
 O `.zip` contém exatamente uma pasta de topo:
 
 ```
 igz-uv/
-├── __init__.py          # setup(app)
-├── igz-UV.py            # a extensão inteira
+├── __init__.py          # setup(app) + __version__ + i18n
+├── core/                # código modular (*.py)
 ├── icons/               # *.svg (tema claro/escuro) + texture_grid.jpg
-├── i18n/                # en, pt-BR, es, it
+├── i18n/                # en, pt-BR, es, de, fr, it, zh
 ├── LICENSE
 ├── README.md
 ├── README_ptBR.md
@@ -44,8 +45,8 @@ igz-uv/
 
 O catálogo instala **um arquivo por extensão**: um `.py`, ou um `.zip` com
 **uma** pasta contendo um `__init__.py` (ver `TEMPLATE.toml` no repositório do
-catálogo). Por isso esta extensão, que traz um módulo, uma pasta de ícones e
-as traduções, usa o formato `.zip`.
+catálogo). Por isso esta extensão, que traz um pacote (`core/`), uma pasta de
+ícones e as traduções, usa o formato `.zip`.
 
 > **Nota sobre o `sha256`:** o `.ps1` (Windows) e o `.py` (multi-plataforma)
 > geram o **mesmo layout** da pasta, mas **não os mesmos bytes** (o compactador
@@ -64,7 +65,7 @@ Pré-requisitos atendidos: repositório público, licença livre
 1. **Confirme as alterações locais e faça o commit.**
    ```powershell
    git add -A
-   git commit -m "chore: prepare 1.0.0 for the IngeTrazo extension catalog"
+   git commit -m "chore: prepare 1.1.0 for the IngeTrazo extension catalog"
    ```
 
 2. **(Opcional) Reconstrua o artefato** — só é necessário se você mudou o
@@ -73,18 +74,21 @@ Pré-requisitos atendidos: repositório público, licença livre
    powershell -ExecutionPolicy Bypass -File packaging\build_extension.ps1
    ```
    Anote o `sha256` impresso e atualize-o em
-   `ingetrazo-extensions-submission/extensions/igz_uv.toml`.
+   `ingetrazo-extensions-submission/extensions/igz_uv.toml` (e nas notas da
+   Release).
 
-3. **Envie o código para o GitHub e crie a etiqueta `v1.0.0`.**
+3. **Envie o código para o GitHub e crie a etiqueta `v1.1.0`.** (A versão fica
+   em `igz-uv/__init__.py`, em `__version__` e no cabeçalho `# Version:`.)
    ```powershell
    git push origin main
-   git tag v1.0.0
-   git push origin v1.0.0
+   git tag v1.1.0
+   git push origin v1.1.0
    ```
 
-4. **Crie a Release `v1.0.0`** em
-   <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/new> e
-   **anexe `dist/igz-uv.zip` como asset** (nome exatamente `igz-uv.zip`).
+4. **Crie a Release `v1.1.0`** em
+   <https://github.com/em-rezende/Ingetrazo-igz-uv/releases/new>, use
+   `packaging/release_notes/v1.1.0.md` como texto e **anexe
+   `dist/igz-uv.zip` como asset** (nome exatamente `igz-uv.zip`).
 
 5. **Abra o pull request no repositório do catálogo** (sem Git, pelo
    navegador):
@@ -96,7 +100,7 @@ Pré-requisitos atendidos: repositório público, licença livre
 
 6. **Responda o checklist** do template do PR:
    - [x] Um arquivo `extensions/igz_uv.toml`, copiado de `TEMPLATE.toml`.
-   - [x] `download` aponta para uma **tag** (`v1.0.0`), não para uma branch.
+   - [x] `download` aponta para uma **tag** (`v1.1.0`), não para uma branch.
    - [x] A licença em `license` é a do código (GPL-3.0-or-later).
    - [x] `reviewed.toml` **não** foi tocado (só mantenedores).
    - A extensão é puramente local: não acessa a rede nem executa processos
@@ -118,22 +122,25 @@ Pré-requisitos atendidos: repositório público, licença livre
 
 # Publishing to the IngeTrazo extension catalog (EN)
 
-> **Status: published / submitted (v1.0.0).** The `v1.0.0` Release is live on
-> GitHub with the `igz-uv.zip` asset (verified sha256) and the catalog entry was
-> submitted in pull request
+> **Status: v1.0.0 published; v1.1.0 ready to publish.** The `v1.1.0` Release
+> ships the `igz-uv.zip` asset (verified sha256) and the catalog entry already
+> points at it. The v1.0.0 entry was submitted in pull request
 > <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, which passed the
-> automatic check and awaits a maintainer's approval. This guide covers the
-> steps that were taken and, in practice, how to publish each update.
+> automatic check. To update the catalog, send the same two files
+> (`extensions/igz_uv.toml` and `screenshots/igz_uv.png`) with the new values.
+> This guide covers the steps that were taken and, in practice, how to publish
+> each update.
 
 Everything needed is in place (code, a `.zip` builder, the package entry, the
 catalog entry and a screenshot). These are the steps to publish:
 
-1. Commit locally (`git add -A; git commit -m "chore: prepare 1.0.0 ..."`).
+1. Commit locally (`git add -A; git commit -m "chore: prepare 1.1.0 ..."`).
 2. (Only if the code changed) rebuild with `packaging\build_extension.ps1` and
    copy the printed `sha256` into the entry.
-3. `git push origin main`, then `git tag v1.0.0` and `git push origin v1.0.0`.
-4. Create the **v1.0.0** GitHub Release and attach `dist/igz-uv.zip` as an
-   asset named exactly `igz-uv.zip`.
+3. `git push origin main`, then `git tag v1.1.0` and `git push origin v1.1.0`.
+4. Create the **v1.1.0** GitHub Release, use
+   `packaging/release_notes/v1.1.0.md` as its text and attach
+   `dist/igz-uv.zip` as an asset named exactly `igz-uv.zip`.
 5. In <https://github.com/ingelibre/ingetrazo-extensions>, copy
    `ingetrazo-extensions-submission/extensions/igz_uv.toml` to
    `extensions/igz_uv.toml` and

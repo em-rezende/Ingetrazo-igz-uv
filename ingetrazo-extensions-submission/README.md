@@ -1,8 +1,10 @@
 # Submission bundle — IngeTrazo extension catalog
 
-> **Submission bundle for the IngeTrazo extension catalog** (v1.0.0). These
-> are the files submitted in the catalog pull request
-> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>.
+> **Submission bundle for the IngeTrazo extension catalog** (v1.1.0). The
+> v1.0.0 entry was submitted in the catalog pull request
+> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>; for v1.1.0 the
+> same two files are sent again with the new `version`, `download` and
+> `sha256` values.
 
 The files below go into the catalog repository:
 
@@ -13,7 +15,7 @@ The files below go into the catalog repository:
 
 ## Preconditions (before opening the pull request)
 
-- The `download` URL points at the **v1.0.0** GitHub Release asset
+- The `download` URL points at the **v1.1.0** GitHub Release asset
   `igz-uv.zip`, so create that tag/release in this repository first and
   upload `dist/igz-uv.zip` as the asset with that exact name.
 - The `sha256` in the entry must match that asset byte-for-byte. It was built

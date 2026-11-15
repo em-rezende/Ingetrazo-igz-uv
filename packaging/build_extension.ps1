@@ -7,7 +7,7 @@
 #
 # Windows / PowerShell builder — no Python needed. It produces the SAME
 # archive layout as packaging/build_extension.py (one top-level folder,
-# igz-uv/, holding __init__.py + the module + icons/ + i18n/ + docs).
+# igz-uv/, holding __init__.py + core/ + icons/ + i18n/ + docs).
 # That folder is what the catalog/IngeTrazo unpacks into <plugins>/, so the
 # installed path becomes <plugins>/igz-uv/.
 #
@@ -42,6 +42,7 @@ if (-not $Output) { $Output = Join-Path $scriptDir '..\dist' }
 
 $root = (Resolve-Path (Join-Path $scriptDir '..')).Path
 $package = 'igz-uv'
+$source = Join-Path $root $package
 $zipName = "$package.zip"
 
 # Fixed timestamp -> reproducible archive.
@@ -60,21 +61,24 @@ function Add-Entry([string]$arc, [string]$src) {
     $entries.Add([pscustomobject]@{ Arc = $arc; Src = $src })
 }
 
-Add-Entry "$package/__init__.py" (Join-Path $scriptDir "$package\__init__.py")
-foreach ($m in @('igz-UV.py')) {
-    Add-Entry "$package/$m" (Join-Path $scriptDir "$package\$m")
+Add-Entry "$package/__init__.py" (Join-Path $source '__init__.py')
+$coreDir = Join-Path $source 'core'
+if (Test-Path -LiteralPath $coreDir) {
+    Get-ChildItem -LiteralPath $coreDir -Filter '*.py' -File |
+        Sort-Object Name |
+        ForEach-Object { Add-Entry "$package/core/$($_.Name)" $_.FullName }
 }
 foreach ($f in @('LICENSE', 'README.md', 'README_ptBR.md', 'THIRD-PARTY.md')) {
     Add-Entry "$package/$f" (Join-Path $root $f)
 }
-$iconsDir = Join-Path $root 'icons'
+$iconsDir = Join-Path $source 'icons'
 if (Test-Path -LiteralPath $iconsDir) {
     Get-ChildItem -LiteralPath $iconsDir -File |
         Where-Object { $_.Extension -eq '.svg' -or $_.Name -like 'texture_grid.*' } |
         Sort-Object Name |
         ForEach-Object { Add-Entry "$package/icons/$($_.Name)" $_.FullName }
 }
-$i18nDir = Join-Path $scriptDir "$package\i18n"
+$i18nDir = Join-Path $source 'i18n'
 if (Test-Path -LiteralPath $i18nDir) {
     Get-ChildItem -LiteralPath $i18nDir -Filter '*.json' -File |
         Sort-Object Name |
@@ -113,8 +117,17 @@ $hash = (Get-FileHash -Algorithm SHA256 -LiteralPath $zipPath).Hash.ToLower()
 Set-Content -LiteralPath "$zipPath.sha256" -Value "$hash  $zipName" -Encoding ascii
 
 $version = '0.0.0'
-foreach ($line in Get-Content -LiteralPath (Join-Path $scriptDir "$package\igz-UV.py")) {
-    if ($line -match '^#\s*Version:\s*(\S+)') { $version = $Matches[1]; break }
+$initPath = Join-Path $source '__init__.py'
+foreach ($line in Get-Content -LiteralPath $initPath) {
+    if ($line -match '^__version__\s*=\s*["'']([^"'']+)["'']') {
+        $version = $Matches[1]
+        break
+    }
+}
+if ($version -eq '0.0.0') {
+    foreach ($line in Get-Content -LiteralPath $initPath) {
+        if ($line -match '^#\s*Version:\s*(\S+)') { $version = $Matches[1]; break }
+    }
 }
 
 Write-Host "igz-uv $version"

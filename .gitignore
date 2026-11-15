@@ -14,6 +14,10 @@ obj/
 *.suo
 *.sln.DotSettings.user
 
+# Python
+__pycache__/
+*.py[cod]
+
 # Arquivos temporarios do AutoCAD
 *.sv$
 *.dwl

@@ -8,9 +8,13 @@
 #
 # The catalog installs ONE file per entry: a .py file, or a .zip holding a
 # single folder with an __init__.py (see TEMPLATE.toml in that repository).
-# This extension needs the zip form because it ships one module plus a
-# folder of SVG icons, a folder of translation JSON files and the UV grid
-# image used for untextured faces.
+# This extension needs the zip form because it ships a package: the entry
+# point, the ``core`` source package, a folder of SVG icons, a folder of
+# translation JSON files and the UV grid image used for untextured faces.
+#
+# The source folder is ``igz-uv/`` at the repository root, already laid out
+# exactly as it must be installed, so the archive is a verbatim copy of it
+# plus the documentation files.
 #
 # The archive is built deterministically on purpose: fixed timestamps,
 # sorted entries and a fixed create-system, so its SHA-256 changes ONLY
@@ -45,46 +49,44 @@ DIST = os.path.join(ROOT, "dist")
 PACKAGE = "igz-uv"
 ZIP_NAME = f"{PACKAGE}.zip"
 
-#: Modules copied verbatim from the package source folder
-#: (packaging/<PACKAGE>/), next to this script. The hyphen in the file
-#: name is deliberate (the original name of the plugin module).
-MODULES = ["igz-UV.py"]
-
 #: Documentation bundled inside the package (optional but tidy).
 EXTRA_FILES = ["LICENSE", "README.md", "README_ptBR.md", "THIRD-PARTY.md"]
 
-#: The package source folder that becomes the single top-level folder in the
-#: zip. It holds the entry point, the module and the translations; the docs
-#: and the icons are pulled from the repository root so they are not
-#: duplicated here.
-PACKAGE_SRC = os.path.join(HERE, PACKAGE)
+#: The package source folder (repository root). It already holds the entry
+#: point, the ``core`` modules, the icons and the translations in the exact
+#: layout the installed package needs; the docs are pulled from the
+#: repository root so they are not duplicated here.
+PACKAGE_SRC = os.path.join(ROOT, PACKAGE)
 
-#: The package entry point (defines setup(app)).
+#: The package entry point (defines setup(app) and __version__).
 INIT_SRC = os.path.join(PACKAGE_SRC, "__init__.py")
+
+#: The ``core`` source package (math_utils, texture, mappings, ...).
+CORE_DIR = os.path.join(PACKAGE_SRC, "core")
 
 #: Translations folder inside the package source folder.
 I18N_DIR = os.path.join(PACKAGE_SRC, "i18n")
 
-#: Icons folder in the repository root. Ships the SVG icons plus the UV
-#: grid image (texture_grid.*) painted on untextured faces.
-ICONS_DIR = os.path.join(ROOT, "icons")
+#: Icons folder inside the package source folder. Ships the SVG icons plus
+#: the UV grid image (texture_grid.*) painted on untextured faces.
+ICONS_DIR = os.path.join(PACKAGE_SRC, "icons")
 
 #: Fixed timestamp so the archive is byte-for-byte reproducible.
 FIXED_DATE = (2026, 1, 1, 0, 0, 0)
 
-#: The module whose header line ``# Version:`` is the single source of truth
-#: for the package version.
-VERSION_SRC = os.path.join(PACKAGE_SRC, "igz-UV.py")
+#: The module whose header carries the version (single source of truth).
+VERSION_SRC = INIT_SRC
 
 
 def read_version() -> str:
-    """Read the version from the module header, so it never drifts."""
+    """Read the version from the package entry point, so it never drifts."""
     with open(VERSION_SRC, encoding="utf-8") as fh:
-        for line in fh:
-            match = re.match(r"#\s*Version:\s*(\S+)", line)
-            if match:
-                return match.group(1)
-    return "0.0.0"
+        text = fh.read()
+    match = re.search(r'^__version__\s*=\s*["\']([^"\']+)["\']', text, re.M)
+    if match:
+        return match.group(1)
+    match = re.search(r"^#\s*Version:\s*(\S+)", text, re.M)
+    return match.group(1) if match else "0.0.0"
 
 
 def _read(path: str) -> bytes:
@@ -104,10 +106,11 @@ def collect_entries() -> list[tuple[str, bytes]]:
 
     entries.append((f"{PACKAGE}/__init__.py", _read(INIT_SRC)))
 
-    for name in MODULES:
-        entries.append(
-            (f"{PACKAGE}/{name}", _read(os.path.join(PACKAGE_SRC, name)))
-        )
+    if os.path.isdir(CORE_DIR):
+        for name in sorted(os.listdir(CORE_DIR)):
+            path = os.path.join(CORE_DIR, name)
+            if os.path.isfile(path) and name.endswith(".py"):
+                entries.append((f"{PACKAGE}/core/{name}", _read(path)))
 
     for name in EXTRA_FILES:
         path = os.path.join(ROOT, name)

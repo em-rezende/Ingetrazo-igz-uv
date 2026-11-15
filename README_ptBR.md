@@ -1,20 +1,20 @@
 # igz-UV — Ferramentas de Mapeamento UV para o IngeTrazo
 
 Extensão de mapeamento UV para o
-[IngeTrazo](https://github.com/ingelibre/ingetrazo), inspirada em ferramentas clássicas de mapeamento UV, adaptada para o IngeTrazo.
+[IngeTrazo](https://github.com/ingelibre/ingetrazo), inspirada em ferramentas
+clássicas de mapeamento UV, adaptada para o IngeTrazo.
 
 Traz seis algoritmos de projeção, um ajustador interativo por teclado,
 um painel lateral com sliders de ajuste fino (U, V, rotação e **escala
 anisotrópica** U/V) e uma grade UV automática para faces sem textura. A
-interface está disponível em inglês (idioma-fonte), português do Brasil,
-espanhol e italiano, e pode ser estendida com novos idiomas sem tocar
-em Python.
+interface é totalmente internacionalizada (a fonte é o inglês) e o código
+está organizado como um pacote modular para facilitar a manutenção.
 
 ![igz-UV em ação sobre um conjunto de primitivas](screenshots/igz-uv.png)
 
 - **Autor:** Ezequiel M. Rezende
-- **Data:** 2026-10-11
-- **Versão:** 1.0.0
+- **Data:** 2026-10-14
+- **Versão:** 1.1.0 (Refatorada)
 - **Licença:** [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html)
   (mesma do IngeTrazo — ver [LICENSE](https://github.com/ingelibre/ingetrazo/blob/main/LICENSE))
 
@@ -78,6 +78,18 @@ tira novo snapshot. Se a seleção mudar com o painel aberto, o botão
 **Recarregar da seleção atual** fica **vermelho** para avisar que o
 painel está fora de sincronia.
 
+### Visibilidade do Painel (Botão de 3 Estados)
+
+A toolbar usa um toggle inteligente de 3 estados para o botão **Ajustar UV**:
+1. **Escondido**: Clicar mostra o painel e o traz para frente.
+2. **Visível, mas atrás de outras abas**: Clicar traz o painel para frente (não o esconde).
+3. **Visível e na frente**: Clicar esconde o painel.
+
+O painel usa a API oficial do hospedeiro (`app.add_panel`), garantindo que
+ele apareça corretamente no menu "Janela ▸ Painéis" do IngeTrazo. O ícone
+na aba do painel é definido usando `app._set_panel_icon` com o ícone
+`uv_panel.svg`.
+
 ### Triangulate
 
 `Triangulate` divide cada polígono selecionado num leque de triângulos,
@@ -91,49 +103,69 @@ face antes.
 
 ### Internacionalização
 
-A interface acompanha o idioma do IngeTrazo. Idiomas disponíveis:
+A interface está disponível em **sete** idiomas, acompanhando o idioma
+do IngeTrazo. O plugin verifica os arquivos `i18n/<lang>.json`,
+caindo para o inglês caso não encontre correspondência:
 
 - Inglês (EUA) — idioma-fonte
-- Português do Brasil
-- Espanhol
-- Italiano
+- Português do Brasil (pt-BR)
+- Espanhol (es)
+- Alemão (de)
+- Francês (fr)
+- Italiano (it)
+- Chinês (zh)
 
-As traduções ficam em `i18n/<lang>.json`. Em tempo de execução, o
-plugin consulta primeiro o `core.i18n.tr` do IngeTrazo; se o host
-não tiver a chave (o que é comum, já que o igz-UV é uma extensão de
-terceiros), o plugin cai para o próprio JSON. Chaves desconhecidas
-devolvem a string em inglês, então o plugin nunca quebra por falta
-de tradução.
+Para adicionar um novo idioma, não é necessário alterar o Python. Basta
+criar um novo arquivo `.json` (ex.: `ru.json`) na pasta `i18n/`,
+copiando a estrutura do `pt-BR.json`.
 
 ### Estrutura de arquivos
 
-```
-igz-UV/
-├── __init__.py            entrada do pacote
-├── igz-UV.py              a extensão inteira
-├── icons/                 ícones SVG + texture_grid.*
+A extensão agora está organizada como um pacote Python:
+
+```text
+igz-uv/
+├── __init__.py            # Ponto de entrada e lógica de i18n
+├── core/                  # Código-fonte modular
+│   ├── __init__.py
+│   ├── math_utils.py      # Geometria pura (vetores, cross, length, etc.)
+│   ├── texture.py         # Modelo UV da face (get/set uvw, textura)
+│   ├── transforms.py      # Composição de transformações afins
+│   ├── mappings.py        # Planar/Esférico/Cilíndrico/Box/Quad/Tubo
+│   ├── triangulate.py     # Triangulação preservando UVs
+│   ├── keyboard_tool.py   # UVTransformTool (interação por teclado)
+│   ├── panel.py           # UVAdjustPanel (QWidget com sliders)
+│   └── toolbar.py         # Toolbar, menu e anexo do painel
+├── icons/                 # Ícones SVG + texture_grid.*
 │   ├── texture_grid.jpg
 │   ├── uv_planar.svg
 │   ├── uv_planar_light.svg
+│   ├── uv_panel.svg
 │   └── ...
-├── i18n/                  traduções, um JSON por idioma
-│   ├── en.json            vazio (o inglês é a fonte)
+├── i18n/                  # Traduções, um JSON por idioma
+│   ├── en.json            # Vazio (o inglês é a fonte)
 │   ├── pt-BR.json
 │   ├── es.json
-│   └── it.json
-├── screenshots/           imagens de documentação
-│   └── igz-uv.png
-├── README.md              versão em inglês
-├── README_ptBR.md         este arquivo
-├── LICENSE                texto completo da GPL-3.0
-└── THIRD-PARTY.md         avisos de terceiros
+│   ├── de.json
+│   ├── fr.json
+│   ├── it.json
+│   └── zh.json
+├── README.md              # Versão em inglês
+├── README_ptBR.md         # Este arquivo
+├── LICENSE                # Texto completo da GPL-3.0
+└── THIRD-PARTY.md         # Avisos de terceiros
 ```
+
+O repositório também contém as ferramentas e as imagens de documentação,
+que **não** fazem parte do pacote: `packaging/` (os geradores do `.zip` e as
+notas de versão), `dist/` (o artefato gerado), `screenshots/` e
+`ingetrazo-extensions-submission/` (a ficha do catálogo).
 
 ---
 
 ## Instalação
 
-Copie a pasta `igz-UV` para o diretório de plugins do usuário:
+Copie a pasta `igz-uv` para o diretório de plugins do usuário:
 
 - **Linux:** `~/.local/share/ingetrazo/plugins/`
 - **Windows:** `%APPDATA%\IngeTrazo\plugins\`
@@ -148,7 +180,7 @@ entrada de Ajuda. O painel lateral **Ajuste UV** fica disponível em
 
 ### Requisitos
 
-- IngeTrazo 0.x (API_VERSION 2)
+- IngeTrazo 0.5.7+ (API com suporte a `app.add_panel`).
 - `texture_grid.*` na pasta `icons/` para a grade automática
   (opcional — o plugin funciona sem ela se todas as faces já tiverem
   textura)
@@ -214,16 +246,15 @@ armazenado como a lista plana `[gu.x, gu.y, gu.z, u0, gv.x, gv.y, gv.z, v0]`.
 ## Traduzindo
 
 Adicionar um idioma novo **não** exige editar Python. Crie um
-arquivo em `i18n/` com o nome do idioma (ex.: `fr.json` para
-francês, `de.json` para alemão), copiando a estrutura de
-`i18n/pt-BR.json`:
+arquivo em `i18n/` com o nome do idioma (ex.: `ru.json` para
+russo), copiando a estrutura de `i18n/pt-BR.json`:
 
 ```json
 {
-  "_language": "Français",
+  "_language": "Русский",
 
-  "Planar Map": "Carte planaire",
-  "Spherical Map": "Carte sphérique",
+  "Planar Map": "Плоская карта",
+  "Spherical Map": "Сферическая карта",
   "...": "..."
 }
 ```
@@ -231,7 +262,7 @@ francês, `de.json` para alemão), copiando a estrutura de
 Regras:
 
 - **As chaves são as strings-fonte em inglês**, exatamente como
-  aparecem em `igz-UV.py`. Não traduza as chaves.
+  aparecem nos arquivos `core/*.py`. Não traduza as chaves.
 - **Os valores são a tradução.**
 - Chaves começando com `_` são metadados e o carregador as ignora
   (`_language`, `_comment`, ...).
@@ -240,22 +271,7 @@ Regras:
 - Cada arquivo deve estar em UTF-8 sem BOM.
 
 Para testar, reinicie o IngeTrazo com a interface nesse idioma; o
-plugin pega automaticamente. Se a tag do idioma for `fr-CA` e não
-existir `fr-CA.json` mas existir `fr.json`, o plugin usa o `fr`.
-Se não houver arquivo nenhum para o idioma ativo, o inglês-fonte é
-usado — o plugin nunca mostra uma chave quebrada.
-
-Para forçar o recarregamento das traduções em desenvolvimento, sem
-reiniciar o IngeTrazo, rode isto no Console Python:
-
-```python
-import sys
-for k, m in list(sys.modules.items()):
-    if "igz" in k.lower() and "uv" in k.lower() and hasattr(m, "_TEXTS"):
-        m._TEXTS.clear()
-        print(f"{k}: cache de traduções limpo")
-        break
-```
+plugin pega automaticamente.
 
 ---
 
