@@ -1,8 +1,8 @@
 # Publicar no catálogo de Extensões do IngeTrazo
 
-> **Status: v1.0.0 publicado; v1.1.0 pronta para publicar.** A Release
-> `v1.1.0` traz o asset `igz-uv.zip` (sha256 verificado) e a ficha do catálogo
-> já aponta para ela. A v1.0.0 foi submetida no pull request
+> **Status: v1.0.0 e v1.1.0 publicadas.** A Release `v1.1.0` está no GitHub
+> com o asset `igz-uv.zip` (sha256 verificado e reproduzível) e a ficha do
+> catálogo já aponta para ela. A v1.0.0 foi submetida no pull request
 > <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, que passou na
 > verificação automática. Para atualizar o catálogo, reenvie os mesmos dois
 > arquivos (`extensions/igz_uv.toml` e `screenshots/igz_uv.png`) com os
@@ -122,11 +122,11 @@ Pré-requisitos atendidos: repositório público, licença livre
 
 # Publishing to the IngeTrazo extension catalog (EN)
 
-> **Status: v1.0.0 published; v1.1.0 ready to publish.** The `v1.1.0` Release
-> ships the `igz-uv.zip` asset (verified sha256) and the catalog entry already
-> points at it. The v1.0.0 entry was submitted in pull request
-> <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, which passed the
-> automatic check. To update the catalog, send the same two files
+> **Status: v1.0.0 and v1.1.0 published.** The `v1.1.0` Release is live on
+> GitHub with the `igz-uv.zip` asset (verified, reproducible sha256) and the
+> catalog entry already points at it. The v1.0.0 entry was submitted in pull
+> request <https://github.com/ingelibre/ingetrazo-extensions/pull/75>, which
+> passed the automatic check. To update the catalog, send the same two files
 > (`extensions/igz_uv.toml` and `screenshots/igz_uv.png`) with the new values.
 > This guide covers the steps that were taken and, in practice, how to publish
 > each update.
