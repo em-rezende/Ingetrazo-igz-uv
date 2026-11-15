@@ -1,10 +1,12 @@
 # Submission bundle — IngeTrazo extension catalog
 
-> **Submission bundle for the IngeTrazo extension catalog** (v1.1.0). The
-> v1.0.0 entry was submitted in the catalog pull request
+> **Submission bundle for the IngeTrazo extension catalog** (v1.1.0).
+> v1.0.0 went in through pull request
 > <https://github.com/ingelibre/ingetrazo-extensions/pull/75>; for v1.1.0 the
-> same two files are sent again with the new `version`, `download` and
-> `sha256` values.
+> same entry was updated with the new `version`, `download` and `sha256` in
+> pull request <https://github.com/ingelibre/ingetrazo-extensions/pull/339>,
+> which the automatic check merged on its own. Only the entry changes — the
+> screenshot is the one already in the catalog.
 
 The files below go into the catalog repository:
 
